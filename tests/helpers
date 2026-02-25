@@ -1,0 +1,9 @@
+import { Page } from '@playwright/test';
+
+export async function loginToDemoApp(page: Page) {
+  await page.goto('/');
+  await page.fill('input[name="email"]', 'admin');
+  await page.fill('input[name="password"]', 'password123');
+  await page.click('button[type="submit"]');
+  await page.waitForURL('**/board');
+}
